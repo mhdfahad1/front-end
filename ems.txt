@@ -1,0 +1,44 @@
+
+
+
+
+
+                        Employee Portal -user management system
+
+
+
+        1. Features: 
+            - login page -(username,password,login button) -admin
+            - home page -
+            - users list page - (new user button, display users details as a table)
+                -table should contains 
+                    -(user id,username,email,status,(dropdown:active,inactive)) ,button for cancel(clear 
+                    the form) and save (add user to userlists)
+                    -user edit page -same as add users
+        2.components -6
+        3.modules -2
+            -AppModule :login component , home component ,header component
+            -userModule : users list component ,users add component,users edit component
+        4. set up path for each component
+        5. Design the components
+        6. creating a json server for employee Portal
+        
+            -create a seperate folder for server
+            -inside server folder ,create package.json file using command: npm init -y
+            -inside server folder ,
+            -create .gitignore file in server folder, and add node_modules inside it 
+            -create entry file (index.js) of your server folder,
+            -create script, start as node index.js in package.json file
+            -create db.json file in server folder to hld json content 
+            -steps to generate json server
+                -import json-server
+                -create our own server to run json file
+                -generate middleware to use in jsonserver
+                -set up path fordb.json
+                -set up port for server
+                -use middleware ,router, to server
+                -server lsten/run to request
+            -to run server app:use command node index.js and open http://http://localhost:3000/ in browser
+        7.steps to request login to server
+        8.create angular to make
+

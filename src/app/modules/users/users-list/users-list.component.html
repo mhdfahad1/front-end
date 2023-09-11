@@ -1,0 +1,78 @@
+<div class="mt-1 d-flex">
+    <div style="width: 200px; height: 90vh;" class="sidebar bg-primary p-3 ">
+        <a routerLink="/home">HOME</a><br>
+        <a routerLink="/users">USERS</a>
+    </div>
+    <div class=" dashboard p-3 w-100">
+        <div class="d-flex justify-content-between">
+            <h1>User List</h1>
+            <button routerLink="add" class="btn btn-warning" type="button">Add</button>
+
+        </div>
+        <div class="m-3 align-items-center d-flex">
+            <input [(ngModel)]="searchkey" style="border-radius: 10px;" class="w-25 p-1" type="text"
+                placeholder="Search By Name">
+            <!-- dropdown -->
+            <div class="dropdown ms-5">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Sort
+                </button>
+                <ul class="dropdown-menu">
+                    <li><button (click)="sortById()" class="dropdown-item text-dark" href="">By Id</button></li>
+                    <li><button (click)="sortByName()" class="dropdown-item text-dark" href="">By Name</button></li>
+                </ul>
+            </div>
+            <!-- download -->
+            <button (click)="generatePDF()" class="btn btn-success ms-auto">Export</button>
+        </div>
+        <br>
+        <br>
+
+
+        <div class="">
+            <table id="userTable" class="table  border ms-1 shadow">
+                <thead>
+                    <tr class="ms-5">
+                        <th>User ID</th>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="(allUsers | search :searchkey :'name').length===0">
+                        <p class="fw-bolder text-danger">User Not Found</p>
+                    </tr>
+                    <tr *ngFor="let user of allUsers | search :searchkey :'name' | paginate
+                    :{
+                        itemsPerPage:tableSize,
+                        currentPage:page,
+                        totalItems:count
+                    } " [hidden]="user.id==1">
+                        <td>{{user.id}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td><span
+                                [ngClass]="user.active=='1'?'btn btn-success':'btn btn-danger'">{{user.active=="1"?'active':'inactive'}}</span>
+                        </td>
+                        <td>
+                            <a routerLink="edit/{{user.id}}"><i
+                                    class="fa-solid fa-pen text-success me-3/4 btn "></i></a>
+                            <i (click)="deleteuser(user.id)" class="fa-solid fa-trash text-danger btn"></i>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-center">
+                <pagination-controls previousLabel="prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+
+                </pagination-controls>
+
+            </div>
+        </div>
+    </div>
+
+</div>

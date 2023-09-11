@@ -1,0 +1,72 @@
+<div class="mt-1 d-flex">
+    <div style="width: 200px; height: 90vh;" class="sidebar bg-primary p-3 ">
+        <a routerLink="/home">HOME</a><br>
+        <a routerLink="/users">USERS</a>
+    </div>
+    <div class="dashboard p-3">
+       <h1 style="margin-left: 350px;" class="text-center mb-5">Add User</h1>
+       <form #addUserForm="ngForm" style="margin-left: 350px;" class="shadow p-5" action="">
+        <div>
+            
+        <label for="">User ID:</label>
+        <input 
+         name="id"
+        [(ngModel)]="user.id"
+        #id="ngModel"
+        class="inpbox"
+         type="text"  
+         id=""
+         required 
+        pattern="[0-9]*"><br>
+
+        <!-- ivalid id -->
+        <div *ngIf="id.invalid && id.touched" style="margin-left: 100px;"  class="mb-3 text-danger">*Invalid Id</div>
+        <br>
+    </div>
+
+
+
+        <label for="">User Name:</label>
+        <input name="name"
+        [(ngModel)]="user.name"
+        #name="ngModel"
+        pattern="[a-zA-Z]*"
+        required   class="inpbox1" type="text" id="">
+        <!-- ivalid name -->
+        <div *ngIf="name.invalid && name.touched" style="margin-left: 100px;"  class="mb-3 text-danger">*Invalid name</div><br>
+        <br>
+
+
+        <label for="">Email:</label>
+        <input name="email"
+        [(ngModel)]="user.email"
+        #email="ngModel"
+        required   class="inpbox1" type="text" id="" class="inpbox2" type="text"><br>
+        <br>
+         <!-- ivalid email -->
+         <div *ngIf="email.invalid && email.touched" style="margin-left: 100px;"  class="mb-3 text-danger">*Invalid email</div><br>
+         <br>
+
+        <label for="">Status:</label>
+        <select  name="active"
+        [(ngModel)]="user.active"
+        #active="ngModel"
+        
+        required    type="text" id="" class="inpbox2 select">
+            <option value="" hidden disabled selected></option>
+            <option value="1">Active</option>
+            <option value="0">InActive</option>
+        </select><br>
+          <!-- ivalid status -->
+
+          <div *ngIf="active.invalid && active.touched" style="margin-left: 100px;"  class="mb-3 text-danger">*Invalid status</div><br>
+          <br>
+ 
+
+        <input (click)="cancel()" style="color: aliceblue; margin-left: 60px;" class="btn bg-dark shadow p-2" type="button" value="cancel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input [disabled]="addUserForm.invalid" (click)=addUser() style="color: aliceblue; " class="btn bg-dark shadow p-2" type="button" value="save">
+    
+       </form>
+    </div>
+
+</div>

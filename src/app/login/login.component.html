@@ -1,0 +1,19 @@
+<form  class="mt-5  p-5 shadow" style="margin-left: 450px; background-color: rgb(27, 14, 56); width: 350px; height: 450px; border-radius: 15px;">
+    <div class="d-flex col-lg-6 p-5 ">
+
+        <h1 class="text-center"></h1>
+    </div>
+    <br>
+    <div class="mb-3  ms-2">
+      <input name="email" [(ngModel)]="email" placeholder="Email" type="email" class="form-control" >
+    </div>
+    <div class="mb-3  ms-2">
+      <input type="password" name="password" [(ngModel)]="password" placeholder="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3 form-check">
+      <a href="" class="" style="text-decoration: none;">forgot password?</a>
+      <p style="color: aliceblue;">new user? <a routerLink="register">Register</a></p>
+    </div>
+    <input (click)="login()" style="margin-left: 100px; padding: 10px; border-radius: 10px;" type="button" value="LOGIN" class="bg-primary">
+  </form>
+

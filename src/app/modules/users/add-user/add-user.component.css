@@ -1,0 +1,26 @@
+a{
+    text-decoration: none;
+     color: aliceblue;
+    margin-top: 10px;
+    }
+.inpbox{
+    margin-left: 60px;
+    border-radius: 10px;
+
+}
+.inpbox1{
+    margin-left: 40px;
+    border-radius: 10px;
+
+}
+.inpbox2{
+    margin-left: 65px;
+    border-radius: 10px;
+
+}
+.select{
+    margin-left: 60px;
+    width: 150px;
+    border-radius: 10px;
+
+}
